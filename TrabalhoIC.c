@@ -8,10 +8,10 @@ struct servico{
     float valor;
     int prazo;
 };
-struct servico servico[50];
+struct servico servico[5];
 
 void add(){
-    for (int i = 0; i < 50; i++) {
+    for (int i = 0; i < 5; i++) {
         if (strlen(servico[i].nome_servico) == 0){
 
             setbuf(stdin,NULL);
@@ -31,38 +31,37 @@ void add(){
             scanf("%d", &servico[i].prazo);
 
             printf("\n\n");
-            i = 50;
+            i = 5;
         }
-        if (i == 49) {printf("sem espaco para novos servicos\n\n");};
+        if (i == 4) {
+            printf("Sem espaço para novos serviços!\n\n");
+            };
     }
 
 }
 
 void imprimir(){
 
-    int have = 0;
-    for (int i = 0; i < 50; i++) {
+    int i;
+    for ( i = 0; i < 5; i++) {
         if (strlen(servico[i].nome_servico) != 0){
             setbuf(stdin,NULL);
-            printf("\nid................ %d\n", i+1);
-            printf("Serviço........... %s", servico[i].nome_servico);
-            printf("Data.............. %s", servico[i].data);
-            printf("Custo............. %.2f reais\n", servico[i].valor);
-            printf("Prazo............. %d dias\n", servico[i].prazo);
-            have = 1;
+            printf("\nid............................ %d\n", i+1);
+            printf("Serviço....................... %s", servico[i].nome_servico);
+            printf("Data.......................... %s", servico[i].data);
+            printf("Custo......................... %.2f reais\n", servico[i].valor);
+            printf("Prazo......................... %d dias\n", servico[i].prazo);
+       
         } 
       }
-      }
-     
-  
-
-
+    }
+    
 void delete() {
     int id;
     imprimir();
     printf("Qual o ID do serviço que voce quer excluir?\n");
     scanf("%d",&id);
-    if(id > 0 && id < 50) {
+    if(id > 0 && id < 5) {
         if(servico[id-1].nome_servico[0] != '\0') {
             servico[id-1].nome_servico[0] = '\0';
             servico[id-1].data[0] = '\0';
@@ -79,7 +78,7 @@ void edit() {
     imprimir();
     printf("\nQual o ID do serviço que voce quer editar?\n");
     scanf("%d",&id);
-    if(id > 0 && id < 50) {
+    if(id > 0 && id < 5) {
         if(servico[id-1].nome_servico[0] != '\0'){  
 
             setbuf(stdin,NULL);
@@ -100,13 +99,13 @@ void edit() {
 
             printf("\n\n");
         } else {
-            printf("Serviço nao existe!");
+            printf("Serviço não existe!");
              }
         
         } else {
-            printf("Serviço nao existe!");
+            printf("Serviço não existe!");
          }
- }
+    }
 int main(){
 
     int resposta;
@@ -139,11 +138,9 @@ int main(){
             resposta = 0;
             break;
         default:
-             printf("Opção inválida\n"); 
-                
+             printf("Opção inválida\n");        
         }
      
     }
-    
-    return 0;
+       return 0;
 }
