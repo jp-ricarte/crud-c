@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 struct servico{
 
@@ -32,6 +33,7 @@ void add(){
 
             printf("\n\n");
             i = 5;
+          system("clear");
         }
         if (i == 4) {
             printf("Sem espaço para novos serviços!\n\n");
@@ -51,15 +53,16 @@ void imprimir(){
             printf("Data.......................... %s", servico[i].data);
             printf("Custo......................... %.2f reais\n", servico[i].valor);
             printf("Prazo......................... %d dias\n", servico[i].prazo);
-       
-        } 
-      }
+
+            
+        }  
+    }
     }
     
 void delete() {
     int id;
     imprimir();
-    printf("Qual o ID do serviço que voce quer excluir?\n");
+    printf("\nQual o ID do serviço que voce quer excluir?\n");
     scanf("%d",&id);
     if(id > 0 && id < 5) {
         if(servico[id-1].nome_servico[0] != '\0') {
@@ -67,6 +70,7 @@ void delete() {
             servico[id-1].data[0] = '\0';
             servico[id-1].prazo = 0;
             servico[id-1].valor = 0;
+            system("clear");
         } else {
             printf("Serviço nao existe!");
         }
@@ -98,8 +102,11 @@ void edit() {
             scanf("%d", &servico[id-1].prazo);
 
             printf("\n\n");
+
+            system("clear");
         } else {
             printf("Serviço não existe!");
+          
              }
         
         } else {
@@ -124,6 +131,7 @@ int main(){
         switch (resposta) {
         case 1:
             add();
+
             break;
         case 2:
             imprimir();
