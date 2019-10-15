@@ -72,9 +72,9 @@ void delete() {
             servico[id-1].valor = 0;
             system("clear");
         } else {
-            printf("Serviço nao existe!");
+            printf("Serviço não existe!");
         }
-    } else printf("Serviço nao existe!");
+    } else printf("Serviço não existe!");
 }
 
 void edit() { 
